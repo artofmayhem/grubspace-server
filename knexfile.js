@@ -47,4 +47,6 @@ module.exports = {
      },
      pool: { min: 2, max: 10 },
   },
+  use_env_variable: 'POSTGRES_DB_URL',
+  dialect: 'postgres'
 }
