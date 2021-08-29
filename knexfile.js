@@ -3,12 +3,6 @@ require("dotenv").config();
 
 const pg = require("pg");
 
-if (process.env.DATABASE_URL) {
-  pg.defaults.ssl = { rejectUnauthorized: false };
-  pg.defaults.sslKey = process.env.DATABASE_URL;
-  pg.defaults.sslCert = process.env.DATABASE_URL;
-  pg.defaults.sslCA = process.env.DATABASE_URL;
-}
 
 const sharedConfig = {
   client: "pg",
@@ -40,7 +34,7 @@ module.exports = {
   production: {
     ...sharedConfig,
     connection: {
-      connectionString: process.env.DATABASE_URL || "postgres://localhost/test",
+      connectionString: process.env.DATABASE_URL ,
       ssl: { rejectUnauthorized: false },
     },
     pool: {
